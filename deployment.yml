@@ -18,7 +18,7 @@ spec:
     spec:
       containers:
       - name: regapp
-        image: 034362058188.dkr.ecr.ap-south-1.amazonaws.com/charanecr:github.sha
+        image: nginx:latest
         imagePullPolicy: Always
         ports:
         - containerPort: 8080
