@@ -1,4 +1,4 @@
-name: Deploy to Amazon ECS
+name: Deploy to Amazon ECR
  
 on:
   push:
@@ -6,7 +6,7 @@ on:
       - main
 env:
   AWS_REGION: ap-south-1
-  ECR_REPOSITORY: charanecr  
+  ECR_REPOSITORY: charanecr
  
 jobs:
   deploy:
@@ -39,5 +39,5 @@ jobs:
           # push it to ECR so that it can
           # be deployed to ECS.
           docker build -t $ECR_REGISTRY/charanecr:github.sha -f dock.yml .
-          docker push $ECR_REGISTRY/charan:github.sha
+          docker push $ECR_REGISTRY/charanecr:github.sha
           echo "image=$ECR_REGISTRY/charanecr:github.sha" >> $GITHUB_OUTPUT
