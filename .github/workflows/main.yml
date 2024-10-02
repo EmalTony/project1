@@ -43,9 +43,9 @@ jobs:
           echo "image=$ECR_REGISTRY/charanecr:github.sha" >> $GITHUB_OUTPUT
           
       - name: Update kube config
-        run: aws eks update-kubeconfig --name dp1-cluster --region ap-south-1
+        run: aws eks update-kubeconfig --name git --region ap-south-1
  
       - name: Deploy to EKS
         run: |
-         kubectl apply -f k8s/deployment.yml --validate=false
-         kubectl apply -f k8s/service.yml --validate=false    
+         kubectl apply -f deployment.yml --validate=false
+         kubectl apply -f service.yml --validate=false    
